@@ -1,9 +1,11 @@
 <!-- HTML CheatSheet -->
 <!-- shift - alt -f = formatear -->
 <!-- shift - alt flechas = duplicar -->
+<!-- ctrl - alt flechas = seleccionar varias lineas al mismo tiempo -->
 <!-- alt flechas = mover -->
 <!-- En css "." para seleccionar clases y "#" para seleccionar ID -->
-
+<!-- Ctrl + D: Sobre un texto seleccionado, selecciona todos los textos iguales -->
+<!-- Shift+Alt+A abrir un comentario (linea verde) -->
 <!-- div, img, p, span, button, a -->
 
 <!-- https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSjfveMJwzl0GAxG_gQijlQVtrRSnND9MdvpHiPiYAryOBytnnXJwZTiVmrOW4jJGVeT927zNmfsDxsmpem1kiOfFaV45Ao00000 -->
@@ -16,19 +18,30 @@
 </head>
 
 <body>
-    <div>
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSjfveMJwzl0GAxG_gQijlQVtrRSnND9MdvpHiPiYAryOBytnnXJwZTiVmrOW4jJGVeT927zNmfsDxsmpem1kiOfFaV45Ao"
-            alt="new balance shoes" width="400" height="700">
-        <div class="container">
-                <div class="container_top">
+    <div class="product-card__container">
+        <img class="product-image"
+            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSjfveMJwzl0GAxG_gQijlQVtrRSnND9MdvpHiPiYAryOBytnnXJwZTiVmrOW4jJGVeT927zNmfsDxsmpem1kiOfFaV45Ao"
+            alt="new balance shoes" width="300" height="300"></img>
+        <div class="product-card__information">
+            <div class="product-card__top">
+                <div class="product-card__name">
                     <p>Adidas Originals</p>
                     <span>$39</span>
                 </div>
                 <p>Men's running shoes</p>
-
             </div>
-            <div class="sizes">
-                
+            <div class="product-card__info">
+                <p>SIZES</p>
+                <span>XS, S, M, L, XL</span>
+            </div>
+            <div class="product-card__info">
+                <p>COLORS</p>
+                <div class="color-options">
+                    <div class="color-option blue"></div>
+                    <div class="color-option white"></div>
+                    <div class="color-option red"></div>
+                    <div class="color-option green"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -40,6 +53,7 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+        font-family: sans-serif;
     }
 
     *,
@@ -48,12 +62,110 @@
         box-sizing: inherit;
     }
 
-    .product-card__container {
-        border: 5px dashed red;
-        margin-bottom: 1rem;
-        border-radius: 15px;
-        padding: 12px;
+    body {
+        background-color: #e2e2e2;
     }
 
-    .product-card__container .product-card__text.stext-span {}
+    .product-card__container {
+        border: 1px solid red;
+        width: max-content;
+        margin: auto;
+        box-shadow: 5px 6px 10px 0px #0000002b;
+        position: relative;
+        overflow: hidden;
+        transition: all 250ms ease-in-out;
+    }
+
+    .product-card__container:hover {
+        cursor: pointer;
+         box-shadow: 5px 6px 10px 0px #0000006e;
+    }
+
+    .product-card__information {
+        background-color: rgb(255, 255, 255);
+        padding: 20px;
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        bottom: -7.1em;
+        transition: all 250ms ease-in-out;
+    }
+
+    .product-card__container:hover .product-card__information {
+       bottom: 0;
+    }
+
+    .product-image {
+        object-fit: cover;
+        min-width: 100%;
+
+    }
+
+    .product-card__name {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .product-card__name p {
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    .product-card__name span {
+        font-weight: 700;
+        font-size: 20px;
+        color: rgb(15, 186, 192);
+    }
+
+    .product-card__top>p,
+    .product-card__info span {
+        color: rgba(0, 0, 0, 0.35)
+    }
+
+    .product-card__info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+    }
+
+    .product-card__info p {
+        font-weight: 600;
+    }
+
+    .color-options {
+        display: flex;
+        gap: 6px;
+    }
+
+    .product-card__info .color-option {
+        width: 13px;
+        height: 13px;
+        aspect-ratio: 1 1;
+        border-radius: 50%;
+        background-color: grey;
+    } 
+
+    .product-card__info .color-option:hover {
+       scale:1.1;
+    }
+
+    .product-card__info .color-option.blue {
+        background-color: blue;
+    }
+
+    .product-card__info .color-option.red {
+        background-color: rgb(240, 10, 10);
+    }
+
+    .product-card__info .color-option.white {
+        background-color: white;
+        border: 1px solid black;
+    }
+
+    .product-card__info .color-option.green {
+        background-color: rgb(60, 175, 60);
+    }
 </style>
