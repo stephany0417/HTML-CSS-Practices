@@ -1,20 +1,92 @@
+<!-- Style siempre va dentro de head -->
+ <!-- herencia, el borde no se hereda por defecto, si se quiere se puede inherit-->
+
+
+<html>
+
 <head>
-    <title>Practica 2</title>
+    <title>Sobre Steph</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="esta es una practica para aprender a programar">
     <link rel="icon" type="image.jpg" href="Images/nubes.jpg">
+
+    <style>
+        body {
+            background: rgb(194 17 106/ 50%);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    
+        h1 {
+            color: rgb(47, 255, 110);
+            font-size: xx-large;
+            
+        }
+        h2 {
+            color: rgb(44, 5, 81);
+        }
+
+         li:first-child {
+            color: red;
+        }
+
+        li:last-child {
+            color: brown;
+        }
+
+        .link{
+            color: darkorchid;
+        }
+
+        .link:hover  {
+            color:orange;
+            outline: 5px solid blue;
+
+        }
+
+       
+
+        #show{
+            background: darkgreen;
+            color:white;
+            border-style: dashed;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <h1>Sobre Steph</h1>
+        <img id="Foto-Steph" src="Images/Steph.jpg" width="250" height="300">
         <nav>
-            <a href="#Cosas que me hacen feliz">Cosas que me hacen feliz</a>
-            <a href="#Hobbies">Hobbies</a>
-            <a href="https://www.instagram.com/acide.blonde/" target="_blank" rel="noreferrer">IG</a>
+            <a class="link" href="#Cosas que me hacen feliz">Cosas que me hacen feliz</a>
+            <a class="link" href="#Hobbies">Hobbies</a>
+            <a class="link" href="https://www.instagram.com/acide.blonde/" target="_blank" rel="noreferrer">IG</a>
         </nav>
     </header>
 
+    <dialog id="Modal">
+        <h1>Sabias que puedes contactarme y obtener soporte?</h1>
+        <p>Y que es tan simple como llenar el formulario de get in touch al final de la pagina</p>
+        <button id="hide">Cerrar</button>
+    </dialog>
+
+    <button id="show">Ver mas info</button>
+
+    <!-- Alejo no me funciono el script aca abajo 
+    <script>
+        window.show.addEventListener('click', () => {
+            window.dialog.showModal()
+        })
+
+        window.hide.add.addeventlistener('click', () => {
+            window.dialog.close()
+        })
+    </script>-->
+
+
+    <video autoplay loop muted src="Images/Video Noche.mp4" width="250" height="500"></video>
+
+    <!-- Cual es la diferencia entre main y body? es necesario añadir main? -->
     <main>
         <p> Esta es mi <strong>segunda practica </strong></p>
         <h2 id="Cosas que me hacen feliz"> Cosas que me hacen feliz</h2>
@@ -24,15 +96,33 @@
             <li>Noche</li>
         </ul>
 
-        <img id="Foto-Steph" src="Images/Steph.jpg" width="250" height="300">
         <img id="Foto-Poker" src="Images/Poker.jpeg" width="250" height="300">
         <img id="Foto-Noche" src="Images/Noche.jpeg" width="200" height="300">
         <img id="Foto-Julian" src="Images/Juliancito.jpeg" width="200" height="300">
 
         <article>
             <h2 id="Hobbies"> Hobbies</h2>
+            <p>Entre mis hobbies esta nadar, jugar videojuegos, estudiar, hacer ejercicio</p>
 
+            <iframe style="width:100%;aspect-ratio:16/9" ,
+                src="https://www.youtube.com/embed/Y9-7rcKxIc8?si=lLjt8t-5iw-ed19d" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </article>
+
+        <section>
+            <h2>Preguntas Frecuentes</h2>
+            <details>
+                <summary>Cuando adopataste a tus perros?</summary>
+                <p>En pandemia, ambos tienen alrededor de 5 años</p>
+            </details>
+
+            <details>
+                <summary>Hace cuanto estas casada?</summary>
+                <p>Cumplire 3 años en enero</p>
+            </details>
+        </section>
 
         <section>
             <h2>Get in touch</h2>
@@ -59,6 +149,18 @@
                     <label>
                         <input type="datetime-local" name="fecha" placeholder="Cuando te contacto?" required>
                     </label>
+
+                    <div>
+                        <datalist id="medios de contacto">
+                            <option value="Llamame al celular"></option>
+                            <option value="Texteame al celular"></option>
+                            <option value="Mandame un correo"></option>
+                        </datalist>
+                        <label>Como prefieres que te contacte?
+                            <input list="medios de contacto" name="medios de contacto" required>
+                        </label>
+                    </div>
+
                 </fieldset>
                 <input type="submit" value="Enviar">
             </form>
@@ -72,3 +174,5 @@
         <a href="https://wa.me/573337416709?text=Hola%20Steph" target="_blank">Whatsappeame</a>
     </footer>
 </body>
+
+</html>
